@@ -1,8 +1,4 @@
 # Databricks notebook source
-dbutils.secrets.list("formula1-scope")
-
-# COMMAND ----------
-
 storage_account_name = "formula1adls2sa"
 client_id = dbutils.secrets.get(scope="formula1-scope",key="databricks-app-client-id")
 tenenat_id = dbutils.secrets.get(scope="formula1-scope",key="databricks-app-tenant-id")
@@ -32,12 +28,12 @@ containers = ["raw","processed"]
 for i in containers:
     try:
         mount_adls(i)
-    except:
+    except Exception as e:
         pass
 
 # COMMAND ----------
 
-dbutils.fs.mounts()
+
 
 # COMMAND ----------
 
