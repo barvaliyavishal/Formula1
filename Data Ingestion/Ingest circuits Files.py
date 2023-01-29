@@ -11,15 +11,15 @@
 
 # COMMAND ----------
 
-dbutils.fs.mounts()
+# MAGIC %fs ls dbfs:/mnt/formula1adls2sa/raw
 
 # COMMAND ----------
 
-# MAGIC %fs ls /mnt/formula1adls2sa/raw
+df = spark.read.csv("dbfs:/mnt/formula1adls2sa/raw/circuits.csv",inferSchema=True,header=True)
 
 # COMMAND ----------
 
-dbutils.fs.ls("/mnt/formula1adls2sa/raw")
+display(df)
 
 # COMMAND ----------
 

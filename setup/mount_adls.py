@@ -34,7 +34,3 @@ for i in containers:
 # COMMAND ----------
 
 
-
-# COMMAND ----------
-
-
